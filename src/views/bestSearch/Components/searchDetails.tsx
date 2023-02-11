@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import * as types from "@/redux/mutation-types";
+// import * as types from "@/redux/mutation-types";
 import { TextField, Stack, Button, Box, Grid } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Search } from "@/api/interface";
 import { localSet } from "@/utils/util";
-import { getSearchList } from "@/api/modules/search";
+// import { getSearchList } from "@/api/modules/search";
 import { connect } from "react-redux";
+import { getSearchListActionThunk } from "@/redux/modules/search/action";
 import Curve from "./curve";
 
 import "./index.less";
@@ -38,14 +39,23 @@ const searchDetails = (props: any) => {
 
 	// 搜索接口调用
 	const getSearchData = async (searchParams: Search.ResSearchData) => {
+		// try {
+		// 	const { data } = await getSearchList(searchParams);
+		// 	if (data?.product_trends?.lenth != 0) {
+		// 		dispatch({
+		// 			type: types.SET_SEARCH_DATA,
+		// 			searchData: data?.product_trends
+		// 		});
+		// 		// let str = value.replace(/[\s]/g, "+");
+		// 		// navigate(`/search/${str}`);
+		// 	}
+		// } catch (error) {
+		// 	console.log(error);
+		// }
+
+		// 使用 redux-thunk
 		try {
-			const { data } = await getSearchList(searchParams);
-			if (data?.product_trends?.lenth != 0) {
-				dispatch({
-					type: types.SET_SEARCH_DATA,
-					searchData: data?.product_trends
-				});
-			}
+			dispatch(getSearchListActionThunk(searchParams));
 		} catch (error) {
 			console.log(error);
 		}
@@ -94,11 +104,11 @@ const searchDetails = (props: any) => {
 						spacing={{ xs: 0, md: 0 }}
 						columns={{ xs: 4, sm: 8, md: 12 }}
 					>
-						{searchData?.map((_: any, index: number) => {
+						{searchData?.map((item: any, index: number) => {
 							return (
 								<Grid item xs={4} sm={4} md={3} key={index}>
 									<div className="details-items">
-										<Curve data={_?.search_msv} titleData={_?.name} className="content-box" />
+										<Curve data={item?.search_msv} titleData={item?.name} className="content-box" />
 									</div>
 								</Grid>
 							);
