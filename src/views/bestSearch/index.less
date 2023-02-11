@@ -1,0 +1,69 @@
+.best-search-body {
+	min-width: 500px;
+	height: 100%;
+	background-color: #fcf7ec;
+	.top-navigation {
+		width: 100%;
+		height: 70px;
+		border-bottom: 1px solid 	#c0c0c0;
+		.top-Logo {
+			width: 180px;
+			height: 100%;
+			font-size: 30px;
+			line-height: 70px;
+			text-align: center;
+			span {
+				font-weight: 600;
+			}
+		}
+	}
+	p {
+		width: 350px;
+		height: 60px;
+		margin: 70px auto 0;
+		font-size: 35px;
+		line-height: 60px;
+		text-align: center;
+	}
+	.search-box {
+		width: 60%;
+		height: 80px;
+		margin: 100px auto 0;
+	}
+}
+
+// 大于 1200px
+@media screen and (min-width: 1200px) {
+	// .best-search-body {
+	// 	background-color: #fcf7ec;
+	// }
+}
+
+// 900-1200px
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+	// .best-search-body {
+	// 	background-color: rgb(25 117 255);
+	// }
+}
+
+// 大于500px 小于 900px
+@media screen and (min-width: 500px) and (max-width: 900px) {
+	.best-search-body {
+		// background-color: rgb(255 0 179);
+		.top-navigation {
+			.top-Logo {
+				width: 80px;
+				height: 100%;
+				background: url("./images/STLogo.png") no-repeat center center/100% auto;
+				background-size: 45px 45px;
+				span {
+					display: none;
+				}
+				i {
+					display: none;
+				}
+			}
+
+		}
+	}
+}
