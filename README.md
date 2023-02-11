@@ -3,10 +3,8 @@
 - **Clone：**
 
 ```text
-# Gitee
-git clone https://gitee.com/laramie/Hooks-Admin.git
 # GitHub
-git clone https://github.com/HalseySpicy/Hooks-Admin.git
+git@github.com:HeJiaYue520/BestSearchByHejiaYue.git
 ```
 
 - **Install：**
@@ -14,7 +12,7 @@ git clone https://github.com/HalseySpicy/Hooks-Admin.git
 ```text
 npm install
 cnpm install
-
+yarn
 # npm install 安装失败，请升级 nodejs 到 16 以上，或尝试使用以下命令：
 npm install --registry=https://registry.npm.taobao.org
 ```
@@ -24,19 +22,7 @@ npm install --registry=https://registry.npm.taobao.org
 ```text
 npm run dev
 npm run serve
-```
-
-- **Build：**
-
-```text
-# 开发环境
-npm run build:dev
-
-# 测试环境
-npm run build:test
-
-# 生产环境
-npm run build:pro
+yarn dev
 ```
 
 - **Lint：**
